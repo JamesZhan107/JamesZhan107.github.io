@@ -5,9 +5,9 @@
   <subtitle>Winter is coming, Hope is everything!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://jameszhan107.github.io/"/>
   <updated>2019-01-18T03:22:47.388Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://jameszhan107.github.io/</id>
   
   <author>
     <name>詹姆斯·文</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hello!blog</title>
-    <link href="http://yoursite.com/2019/01/18/hello-blog/"/>
-    <id>http://yoursite.com/2019/01/18/hello-blog/</id>
+    <link href="https://jameszhan107.github.io/2019/01/18/hello-blog/"/>
+    <id>https://jameszhan107.github.io/2019/01/18/hello-blog/</id>
     <published>2019-01-18T03:21:21.000Z</published>
     <updated>2019-01-18T03:22:47.388Z</updated>
     
