@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jameszhan.cf/"/>
-  <updated>2019-01-19T08:20:05.159Z</updated>
+  <updated>2019-01-18T03:22:47.388Z</updated>
   <id>http://jameszhan.cf/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>test1</title>
-    <link href="http://jameszhan.cf/2019/01/19/test1/"/>
-    <id>http://jameszhan.cf/2019/01/19/test1/</id>
-    <published>2019-01-19T08:15:24.000Z</published>
-    <updated>2019-01-19T08:20:05.159Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>￥ 机会就看对方谁啊</p><h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>￥ 可视对讲覅了</p><h3 id="3"><a href="#3" class="headerlink" title="3"></a>3</h3><p>￥ 接口使得见覅偶极</p>]]></content>
-    
-    <summary type="html">
-    
-      这是一篇测试文章，我想知道到底行不行
-    
-    </summary>
-    
-      <category term="测试" scheme="http://jameszhan.cf/categories/%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="test" scheme="http://jameszhan.cf/tags/test/"/>
-    
-      <category term="java" scheme="http://jameszhan.cf/tags/java/"/>
-    
-      <category term="python" scheme="http://jameszhan.cf/tags/python/"/>
-    
-  </entry>
   
   <entry>
     <title>hello!blog</title>
