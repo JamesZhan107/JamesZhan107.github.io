@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>詹姆斯·文</title>
+  <title>James&#39;s Blog</title>
   
-  
+  <subtitle>Winter is coming, Hope is everything!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
@@ -10,7 +10,7 @@
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>James</name>
+    <name>詹姆斯·文</name>
     
   </author>
   
