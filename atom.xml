@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>詹姆斯·文</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-01-18T03:22:47.388Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>James</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello!blog</title>
+    <link href="http://yoursite.com/2019/01/18/hello-blog/"/>
+    <id>http://yoursite.com/2019/01/18/hello-blog/</id>
+    <published>2019-01-18T03:21:21.000Z</published>
+    <updated>2019-01-18T03:22:47.388Z</updated>
+    
+    <content type="html"><![CDATA[<p>欢迎来到 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>！这是你的第一篇博文。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一篇新博文"><a href="#创建一篇新博文" class="headerlink" title="创建一篇新博文"></a>创建一篇新博文</h3><p>$ hexo new post “My New Post”</p><p>更多信息……</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>谢谢你使用 Hexo。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;欢迎来到 &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;！这是你的第一篇博文。&lt;/p&gt;
+&lt;h2 id=&quot;快速开始&quot;&gt;&lt;a href=&quot;#快速开始&quot; class=&quot;headerlink&quot; t
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
