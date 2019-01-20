@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jameszhan.cf/"/>
-  <updated>2019-01-18T03:22:47.388Z</updated>
+  <updated>2019-01-19T15:17:44.478Z</updated>
   <id>http://jameszhan.cf/</id>
   
   <author>
@@ -17,24 +17,26 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello!blog</title>
-    <link href="http://jameszhan.cf/2019/01/18/hello-blog/"/>
-    <id>http://jameszhan.cf/2019/01/18/hello-blog/</id>
-    <published>2019-01-18T03:21:21.000Z</published>
-    <updated>2019-01-18T03:22:47.388Z</updated>
+    <title>个人博客处女作</title>
+    <link href="http://jameszhan.cf/2019/01/19/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%A4%84%E5%A5%B3%E4%BD%9C/"/>
+    <id>http://jameszhan.cf/2019/01/19/个人博客处女作/</id>
+    <published>2019-01-19T11:14:40.000Z</published>
+    <updated>2019-01-19T15:17:44.478Z</updated>
     
-    <content type="html"><![CDATA[<p>欢迎来到 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>！这是你的第一篇博文。</p><h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="创建一篇新博文"><a href="#创建一篇新博文" class="headerlink" title="创建一篇新博文"></a>创建一篇新博文</h3><p>$ hexo new post “My New Post”</p><p>更多信息……</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>谢谢你使用 Hexo。</p>]]></content>
+    <content type="html"><![CDATA[<p>千呼万唤始出来，james的个人博客终于开通啦！！！</p><p>首先，感谢师兄陈坤大佬的鼎力相助，本博客是完全按照师兄的<a href="https://kchen.cc/2016/11/12/hexo-instructions/" target="_blank" rel="noopener">教程</a>来搭建的，顺便安利一下师兄的<a href="kchen.cc">个人博客</a>。</p><p>接下来说一下自己的几点想法。</p><h3 id="为什么会想着开通个人博客"><a href="#为什么会想着开通个人博客" class="headerlink" title="为什么会想着开通个人博客"></a>为什么会想着开通个人博客</h3><p>说实话，最初想着开个人博客就是单纯地觉得有博客是一个挺牛逼的事，毕竟大佬们都是一有github，二有个人博客，三有微信公众号。正所谓不想当大佬的渣渣不是优秀工程师嘛。</p><p>之后也在CSDN也写过一些技术文章，写着写着就觉得比较局限。首先吧，CSDN的博客页面不是很美丽，影响阅读体验；其次呢，写博客的时候是在它的在线markdown编辑器下进行，用起来不太顺手，而且图片还有水印，让人难以接受；最最重要的是，CSDN它有广告啊，就很烦这一点，明明是单纯的技术分享，阅读的同时页面右侧还有广告随着你的页面移动，令人抓狂。</p><p>前不久恰逢听闻陈坤师兄用极其简单且免费的方法搭建了自己的个人博客，立马就动心了，还没考完《矩阵论》，心里就开始琢磨自己该整一个什么样的。本来以为个人博客得放在自己的服务器上，需要部署还得更新上传，没想到hexo+github如此简单，年轻人要学的还有很多啊！</p><p>还有markdown,自己用的不多，借着个人博客的开通，希望自己能坚持写作，日后慢慢熟悉。</p><h3 id="打算在博客写什么"><a href="#打算在博客写什么" class="headerlink" title="打算在博客写什么"></a>打算在博客写什么</h3><ul><li><p>技术文章。 研究生期间需要自学的东西很多，很多时候学完了如果没有用到的话很快就会遗忘，等某一天需要的时候又得重新学习，所以记录自己的所学很重要。后期我会将CSDN的文章迁移过来。</p></li><li><p>项目总结。 每一次所做的项目，我想都有必要去好好回顾与总结。一方面是对所做项目所花时间有个交代，另外也是对未来的工作有一定的指导意义。</p></li><li><p>随笔。 目前自己的总结和心里记录都是写在自己的有道云笔记里，以后可以考虑迁移到个人博客中来。其次，对于一些社会热点事件，个人小思绪，我也会写在博客中。</p></li></ul><p>自从詹姆斯加盟湖人，紫金便是我最爱的配色。观感尚可，希望大家能多提建议！</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;欢迎来到 &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;！这是你的第一篇博文。&lt;/p&gt;
-&lt;h2 id=&quot;快速开始&quot;&gt;&lt;a href=&quot;#快速开始&quot; class=&quot;headerlink&quot; t
+        &lt;p&gt;千呼万唤始出来，james的个人博客终于开通啦！！！&lt;/p&gt;
+&lt;p&gt;首先，感谢师兄陈坤大佬的鼎力相助，本博客是完全按照师兄的&lt;a href=&quot;https://kchen.cc/2016/11/12/hexo-instructions/&quot; target=&quot;_blank&quot; re
       
     
     </summary>
     
+    
+      <category term="随笔" scheme="http://jameszhan.cf/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
