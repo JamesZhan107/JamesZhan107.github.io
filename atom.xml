@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jameszhan.cf/"/>
-  <updated>2019-01-19T15:17:44.478Z</updated>
+  <updated>2019-01-21T13:27:43.577Z</updated>
   <id>http://jameszhan.cf/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Markdown学习笔记</title>
+    <link href="http://jameszhan.cf/2019/01/21/Markdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://jameszhan.cf/2019/01/21/Markdown学习笔记/</id>
+    <published>2019-01-21T03:43:51.000Z</published>
+    <updated>2019-01-21T13:27:43.577Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天大概学习了一下Markdown的语法，感觉也不是那么难，用起来都比较方便。作为一门编辑类工具，相信是越用越熟，以后多多练习，必能熟练掌握。</p><p>那么就先简单介绍一些常用的语法，之后有需求再去更新。</p><h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>标题有以下六种</p><pre><code># 一级标题## 二级标题### 三级标题#### 四级标题##### 五级标题###### 六级标题</code></pre><hr><h1 id="文字格式"><a href="#文字格式" class="headerlink" title="文字格式"></a>文字格式</h1><h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><pre><code>**这是文字粗体格式***这是文字斜体格式*&lt;del&gt;在文字上添加删除线 或~~在文字上添加删除线~~`在文字下增加底纹`</code></pre><p><strong>这是文字粗体格式</strong></p><p><em>这是文字斜体格式</em></p><p><del>在文字上添加删除线<br>或<br><del>在文字上添加删除线</del></del></p><p><code>在文字下增加底纹</code></p><hr><h2 id="自定义字体、字号和颜色"><a href="#自定义字体、字号和颜色" class="headerlink" title="自定义字体、字号和颜色"></a>自定义字体、字号和颜色</h2><pre><code>&lt;font color=#0099ff size=6 face=&quot;黑体&quot;&gt;颜色，字号，字体&lt;/font&gt;</code></pre><font color="red" size="6" face="黑体">颜色，字号，字体</font><hr><h1 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h1><pre><code>[文本内容]（链接地址）</code></pre><p><a href="www.baidu.com">百度一下</a></p><hr><h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><h2 id="原始版"><a href="#原始版" class="headerlink" title="原始版"></a>原始版</h2><p>此种方式无法改变图片的大小</p><pre><code>![图片的描述](图片的链接地址)</code></pre><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548079776613&di=30d8bfafe8464ea60d3faae9c83ba992&imgtype=0&src=http%3A%2F%2F06.imgmini.eastday.com%2Fmobile%2F20180609%2F20180609000241_a3be888839a2b04ded0a1e3705c466cf_3.jpeg" alt="最爱的詹姆斯" title="">                </div>                <div class="image-caption">最爱的詹姆斯</div>            </figure><h2 id="升级版"><a href="#升级版" class="headerlink" title="升级版"></a>升级版</h2><p>此种方式可自定义图片大小</p><pre><code>&lt;img src=&quot;./xxx.png&quot; width = &quot;300&quot; height = &quot;200&quot; alt=&quot;图片名称&quot;/&gt;</code></pre><p> <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548079776613&di=30d8bfafe8464ea60d3faae9c83ba992&imgtype=0&src=http%3A%2F%2F06.imgmini.eastday.com%2Fmobile%2F20180609%2F20180609000241_a3be888839a2b04ded0a1e3705c466cf_3.jpeg" width="300" height="300" alt="最爱的詹姆斯"></p><blockquote><p>如果需要居中的话只要在语句外面包围div标签即可</p></blockquote><pre><code>&lt;div  align=&quot;center&quot;&gt;    ...&lt;/div&gt;</code></pre><hr><h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>在文本内容之前加上 &gt;（大于号），即可将文本变成引用文本</p><pre><code>&gt;这是引用部分</code></pre><blockquote><p>这是引用部分</p></blockquote><hr><h1 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h1><p>前面用到了很多代码框，即每个大框都是代码框。有两种办法：1.一对“上三点”包裹代码 2.代码前加四个空格（一个tab键）。两种语法的显示在不同编辑器下可能会有些许区别，前者会有标号。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void test()&#123;</span><br><span class="line">System.out.println(&quot;这就是代码框&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><pre><code>public void test(){    System.out.println(&quot;这就是代码框&quot;)}</code></pre><hr><h1 id="水平分割线"><a href="#水平分割线" class="headerlink" title="水平分割线"></a>水平分割线</h1><p>前面也用到了许多分割线，三个小短线即可表示。</p><pre><code>--- 就是这小三只</code></pre><hr><h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>列表项目标记通常放在最左边，项目标记后面要接一个字符的空格</p><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><p>使用星号、加号或是减号作为列表标记</p><pre><code>- 第一- 第二- 第三</code></pre><ul><li>第一</li><li>第二</li><li>第三</li></ul><hr><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>使用数字接着一个英文句点</p><pre><code>1. Red2. Green3. Blue</code></pre><ol><li>Red</li><li>Green</li><li>Blue</li></ol><hr><h2 id="待办列表"><a href="#待办列表" class="headerlink" title="待办列表"></a>待办列表</h2><p>表示列表是否勾选状态（注意：[ ] 前后都要有空格）</p><pre><code>- [ ] 不勾选- [x] 勾选</code></pre><ul><li style="list-style: none"><input type="checkbox"> 不勾选</li><li style="list-style: none"><input type="checkbox" checked> 勾选</li></ul><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天大概学习了一下Markdown的语法，感觉也不是那么难，用起来都比较方便。作为一门编辑类工具，相信是越用越熟，以后多多练习，必能熟练掌握。&lt;/p&gt;
+&lt;p&gt;那么就先简单介绍一些常用的语法，之后有需求再去更新。&lt;/p&gt;
+&lt;h1 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; c
+      
+    
+    </summary>
+    
+      <category term="语言语法" scheme="http://jameszhan.cf/categories/%E8%AF%AD%E8%A8%80%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="Markdown" scheme="http://jameszhan.cf/tags/Markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>个人博客处女作</title>
