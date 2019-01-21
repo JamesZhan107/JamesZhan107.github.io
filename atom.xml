@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jameszhan.cf/"/>
-  <updated>2019-01-21T13:27:43.577Z</updated>
+  <updated>2019-01-21T14:16:14.097Z</updated>
   <id>http://jameszhan.cf/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java web架构介绍</title>
+    <link href="http://jameszhan.cf/2019/01/21/Java-web%E6%9E%B6%E6%9E%84%E4%BB%8B%E7%BB%8D/"/>
+    <id>http://jameszhan.cf/2019/01/21/Java-web架构介绍/</id>
+    <published>2019-01-21T13:40:57.000Z</published>
+    <updated>2019-01-21T14:16:14.097Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="常规的J2EE三层架构"><a href="#常规的J2EE三层架构" class="headerlink" title="常规的J2EE三层架构"></a>常规的J2EE三层架构</h1><p><img src="https://img-blog.csdnimg.cn/20181108110835831.png" width="600" height="400"></p><h1 id="Alibaba提倡的分层结构"><a href="#Alibaba提倡的分层结构" class="headerlink" title="Alibaba提倡的分层结构"></a>Alibaba提倡的分层结构</h1><p><img src="https://img-blog.csdnimg.cn/20181108110624498.jpg" width="600" height="400"></p><h2 id="Web-层"><a href="#Web-层" class="headerlink" title="Web 层"></a>Web 层</h2><p>主要是对访问控制进行转发，各类基本参数校验，或者不复用的业务简单处理等。</p><h2 id="Service-层"><a href="#Service-层" class="headerlink" title="Service 层"></a>Service 层</h2><p>相对具体的业务逻辑服务层。</p><h2 id="Manager-层"><a href="#Manager-层" class="headerlink" title="Manager 层"></a>Manager 层</h2><p>通用业务处理层，它有如下特征： 1） 对第三方平台封装的层，预处理返回结果及转化异常信息； 2） 对 Service 层通用能力的下沉，如缓存方案、中间件通用处理； 3） 与 DAO 层交互，对多个 DAO 的组合复用。</p><h2 id="DAO-层"><a href="#DAO-层" class="headerlink" title="DAO 层"></a>DAO 层</h2><p>数据访问层，与底层 MySQL、Oracle、Hbase 等进行数据交互。</p><h2 id="开放接口层"><a href="#开放接口层" class="headerlink" title="开放接口层"></a>开放接口层</h2><p>可直接封装 Service 方法暴露成 RPC 接口；通过 Web 封装成 http 接口；进行网关安全控制、流量控制等。</p><h2 id="终端显示层"><a href="#终端显示层" class="headerlink" title="终端显示层"></a>终端显示层</h2><p>各个端的模板渲染并执行显示的层。当前主要是 velocity 渲染，JS 渲染，JSP 渲染，移动端展示等。</p><h2 id="外部接口或第三方平台"><a href="#外部接口或第三方平台" class="headerlink" title="外部接口或第三方平台"></a>外部接口或第三方平台</h2><p>包括其它部门 RPC 开放接口，基础平台，其它公司的 HTTP 接口。</p><h1 id="MVC的结构"><a href="#MVC的结构" class="headerlink" title="MVC的结构"></a>MVC的结构</h1><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://img-blog.csdnimg.cn/20181108110215665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODUzMjE1OQ==,size_1,color_FFFFFF,t_70" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><h1 id="SpringMVC的结构及工作原理"><a href="#SpringMVC的结构及工作原理" class="headerlink" title="SpringMVC的结构及工作原理"></a>SpringMVC的结构及工作原理</h1><p><img src="https://img-blog.csdnimg.cn/20181108114234197.png" width="600" height="400"></p><h2 id="工作流程详解"><a href="#工作流程详解" class="headerlink" title="工作流程详解"></a>工作流程详解</h2><ol><li>客户端的所有请求都交给前端控制器DispatcherServlet来处理，它会负责调用系统的其他模块来真正处理用户的请求。 </li><li>DispatcherServlet收到请求后，将根据请求的信息（包括URL、HTTP协议方法、请求头、请求参数、Cookie等）以及HandlerMapping的配置找到处理该请求的Handler（任何一个对象都可以作为请求的Handler）。 </li><li>在这个地方Spring会通过HandlerAdapter对该处理进行封装。 </li><li>HandlerAdapter是一个适配器，它用统一的接口对各种Handler中的方法进行调用。 </li><li>Handler完成对用户请求的处理后，会返回一个ModelAndView对象给DispatcherServlet，ModelAndView顾名思义，包含了数据模型以及相应的视图的信息。 </li><li>ModelAndView的视图是逻辑视图，DispatcherServlet还要借助ViewResolver完成从逻辑视图到真实视图对象的解析工作。 </li><li>当得到真正的视图对象后，DispatcherServlet会利用视图对象对模型数据进行渲染。 </li><li>客户端得到响应，可能是一个普通的HTML页面，也可以是XML或JSON字符串，还可以是一张图片或者一个PDF文件。</li></ol><h2 id="组件及其作用"><a href="#组件及其作用" class="headerlink" title="组件及其作用"></a>组件及其作用</h2><ol><li>前端控制器 (DispatcherServlet)<br>接收请求，响应结果，相当于转发器，中央处理器。负责调用系统的其他模块来真正处理用户的请求。 有了DispatcherServlet减少了其他组件之间的耦合度</li><li>处理器映射器 (HandlerMapping)<br>作用：根据请求的 url 查找 Handler</li><li>处理器 (Handler)<br>注意：编写 Handler 时按照 HandlerAdapter 的要求去做，这样适配器才可以去正确执行 Handler处理器适配器 (HandlerAdapter)<br>作用：按照特定规则（HandlerAdapter要求的规则）执行Handler。</li><li>视图解析器 (ViewResolver)<br>作用：进行视图解析，根据逻辑视图解析成真正的视图 (View)</li><li>视图 (View)<br>View 是一个接口实现类支持不同的 View 类型（jsp,pdf等等）</li></ol><blockquote><p>进行SpringMVC开发时，程序员只需编写处理器和视图。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;常规的J2EE三层架构&quot;&gt;&lt;a href=&quot;#常规的J2EE三层架构&quot; class=&quot;headerlink&quot; title=&quot;常规的J2EE三层架构&quot;&gt;&lt;/a&gt;常规的J2EE三层架构&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg
+      
+    
+    </summary>
+    
+      <category term="后端技术" scheme="http://jameszhan.cf/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="java" scheme="http://jameszhan.cf/tags/java/"/>
+    
+      <category term="web" scheme="http://jameszhan.cf/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>Markdown学习笔记</title>
