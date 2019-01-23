@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?58fa6a04ea6fa612757f458595a003f1"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SSM学习系列（二）：SpringMVC概述 | James&#39;s Blog | Winter is coming, Hope is everything!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java,SSM,SpringMVC">
+    <meta name="description" content="SpringMVC简介 SpringMVC属于表现层的框架，它是Spring框架的一部分。">
+<meta name="keywords" content="Java,SSM,SpringMVC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM学习系列（二）：SpringMVC概述">
+<meta property="og:url" content="http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/index.html">
+<meta property="og:site_name" content="James&#39;s Blog">
+<meta property="og:description" content="SpringMVC简介 SpringMVC属于表现层的框架，它是Spring框架的一部分。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018121810540278.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218105646726.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218112943313.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218111150322.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219210111708.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218112833217.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218112307584.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018121811274758.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218144447508.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218144506578.png">
+<meta property="og:updated_time" content="2019-01-23T15:18:12.847Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSM学习系列（二）：SpringMVC概述">
+<meta name="twitter:description" content="SpringMVC简介 SpringMVC属于表现层的框架，它是Spring框架的一部分。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2018121810540278.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="James&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">詹姆斯·文</h5>
+          <a href="mailto:18846439093@163.com" title="18846439093@163.com" class="mail">18846439093@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/JamesZhan107" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SSM学习系列（二）：SpringMVC概述</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SSM学习系列（二）：SpringMVC概述</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-23T14:20:50.000Z" itemprop="datePublished" class="page-time">
+  2019-01-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端技术/">后端技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SpringMVC简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">SpringMVC简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SpringMVC实现过程详解"><span class="post-toc-number">2.</span> <span class="post-toc-text">SpringMVC实现过程详解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SpringMVC开发流程"><span class="post-toc-number">3.</span> <span class="post-toc-text">SpringMVC开发流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导入Jar包"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">导入Jar包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册中央调度器"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">注册中央调度器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建SpringMVC配置文件"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">创建SpringMVC配置文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义处理器"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">定义处理器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册处理器"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">注册处理器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置试图解析器"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">配置试图解析器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义目标页面"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">定义目标页面</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#URL路径问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">URL路径问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#访问路径与资源路径"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">访问路径与资源路径</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绝对路径与相对路径"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">绝对路径与相对路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#绝对路径"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">绝对路径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相对路径"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">相对路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#以斜杠开头的相对路径"><span class="post-toc-number">4.2.2.1.</span> <span class="post-toc-text">以斜杠开头的相对路径</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#前台路径"><span class="post-toc-number">4.2.2.1.1.</span> <span class="post-toc-text">前台路径</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#后台路径"><span class="post-toc-number">4.2.2.1.2.</span> <span class="post-toc-text">后台路径</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#后台路径特例"><span class="post-toc-number">4.2.2.1.3.</span> <span class="post-toc-text">后台路径特例</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#不以斜杠开头的相对路径"><span class="post-toc-number">4.2.2.2.</span> <span class="post-toc-text">不以斜杠开头的相对路径</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-SSM学习系列（二）：SpringMVC概述" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SSM学习系列（二）：SpringMVC概述</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-23 22:20:50" datetime="2019-01-23T14:20:50.000Z" itemprop="datePublished">2019-01-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端技术/">后端技术</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="SpringMVC简介"><a href="#SpringMVC简介" class="headerlink" title="SpringMVC简介"></a>SpringMVC简介</h1><blockquote>
+<p>SpringMVC属于表现层的框架，它是Spring框架的一部分。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/2018121810540278.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218105646726.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="SpringMVC实现过程详解"><a href="#SpringMVC实现过程详解" class="headerlink" title="SpringMVC实现过程详解"></a>SpringMVC实现过程详解</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218112943313.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ol>
+<li>浏览器提交请求到中央调度器</li>
+<li>中央调度器直接将请求转给处理器映射器。</li>
+<li>处理器映射器会根据请求，找到处理该请求的处理器，并将其封装为处理器执行链后返回给中央调度器。</li>
+<li>中央调度器根据处理器执行链中的处理器，找到能够执行该处理器的处理器适配器。</li>
+<li>处理器适配器调用执行处理器。</li>
+<li>处理器将处理结果及要跳转的视图封装到一个对象ModelAndView中，并将其返回给 处理器适配器。</li>
+<li>处理器适配器直接将结果返回给中央调度器。</li>
+<li>中央调度器调用视图解析器，将ModelAndView中的视图名称封装为视图对象。</li>
+</ol>
+<h1 id="SpringMVC开发流程"><a href="#SpringMVC开发流程" class="headerlink" title="SpringMVC开发流程"></a>SpringMVC开发流程</h1><h2 id="导入Jar包"><a href="#导入Jar包" class="headerlink" title="导入Jar包"></a>导入Jar包</h2><h2 id="注册中央调度器"><a href="#注册中央调度器" class="headerlink" title="注册中央调度器"></a>注册中央调度器</h2><p><img src="https://img-blog.csdnimg.cn/20181218111150322.png" alt=""></p>
+<h2 id="创建SpringMVC配置文件"><a href="#创建SpringMVC配置文件" class="headerlink" title="创建SpringMVC配置文件"></a>创建SpringMVC配置文件</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219210111708.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="定义处理器"><a href="#定义处理器" class="headerlink" title="定义处理器"></a>定义处理器</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218112833217.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>ModelAndView类中的addObject()方法用于向其Model中添加数据，因为该函数的返回值为ModelAndView，所以可以向Model中连续添加多个数据。</p>
+<h2 id="注册处理器"><a href="#注册处理器" class="headerlink" title="注册处理器"></a>注册处理器</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218112307584.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在springmvc.xml中注册处理器。需要注意的是处理器的id属性值为一个请求URI，表示当客户端提交该请求时，会访问class指定的这个处理器。</p>
+<h2 id="配置试图解析器"><a href="#配置试图解析器" class="headerlink" title="配置试图解析器"></a>配置试图解析器</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/2018121811274758.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>SpringMVC框架为了避免对于请求资源路径与扩展名的冗余，在视图解析器InternalResouceViewResolver中引入了请求的前缀和后缀。</p>
+<h2 id="定义目标页面"><a href="#定义目标页面" class="headerlink" title="定义目标页面"></a>定义目标页面</h2><p>编写前端页面代码</p>
+<h1 id="URL路径问题"><a href="#URL路径问题" class="headerlink" title="URL路径问题"></a>URL路径问题</h1><h2 id="访问路径与资源路径"><a href="#访问路径与资源路径" class="headerlink" title="访问路径与资源路径"></a>访问路径与资源路径</h2><blockquote>
+<p>通常的URL资源访问路径由两部分构成：访问路径与资源名称。</p>
+</blockquote>
+<p>访问路径，则是通过该路径则可以定位到指定的资源，即在URL资源访问路径中除了资 源名称以外的其它部分。一般情况下，在URL访问路径中，最后一部分为资源名称，而其它部分则为访问路径。</p>
+<p>资源名称指的是要访问资源的直接名称，如show.jsp，或与要访问资源存在映射关系的间接名称，如show.do。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218144447508.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218144506578.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="绝对路径与相对路径"><a href="#绝对路径与相对路径" class="headerlink" title="绝对路径与相对路径"></a>绝对路径与相对路径</h2><blockquote>
+<p>根据“访问路径是否可以独立完成资源准确定位”的评判标准，可以将访问路径分为绝对路径和相对路径。</p>
+</blockquote>
+<h3 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h3><blockquote>
+<p>绝对路径是指根据给出的访问路径可以准确定位到资源的路径，对于计算机中Web应用的绝对路径则是指带访问协议的路径。如：<a href="http://127.0.0.1:8080/primary/index.jsp" target="_blank" rel="noopener">http://127.0.0.1:8080/primary/index.jsp</a></p>
+</blockquote>
+<h3 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h3><blockquote>
+<p>相对路径是指根据给出的访问路径无法准确定位到资源的路径，相对路径必须要结合其参照路径才可以组成可以准确定位资源的绝对路径。</p>
+</blockquote>
+<p>在Web应用中，相对路径的写法有两种：一种是以斜杠开头的相对路径，一种是不以 斜杠开头的相对路径。根据相对路径是否以斜杠开头，且出现的文件所处位置的不同，其默认的参照路径是不同的，这也是相对路径容易出错的地方：确定参照路径！</p>
+<h4 id="以斜杠开头的相对路径"><a href="#以斜杠开头的相对路径" class="headerlink" title="以斜杠开头的相对路径"></a>以斜杠开头的相对路径</h4><h5 id="前台路径"><a href="#前台路径" class="headerlink" title="前台路径"></a>前台路径</h5><p>所谓前台路径是指，由浏览器解析执行的代码中所包含的路径。例如，html、css、js中的路径，及jsp中静态部分的路径。像html及jsp中的静态部分中的img src=” “、href=” “、form action=” “等；像 css 中的 background:img(“ “}等；像 window.location.href=” “，都属于前台路径。<br>前台路径的参照路径是Web服务器的根路径，即：<a href="http://127.0.0.1:8080/" target="_blank" rel="noopener">http://127.0.0.1:8080/</a></p>
+<h5 id="后台路径"><a href="#后台路径" class="headerlink" title="后台路径"></a>后台路径</h5><p>所谓后台路径是指，由服务器解析执行的代码及文件中所包含的路径。例如，java代码中的路径、jsp文件动态部分（java代码块）中的路径、xml文件中的路径（xml文件是要被 java代码加载入内存，并由java代码解析的）等。<br>后台路径的参照路径是Web应用的根路径。如：<a href="http://127.0.0.1:8080/primary/" target="_blank" rel="noopener">http://127.0.0.1:8080/primary/</a></p>
+<h5 id="后台路径特例"><a href="#后台路径特例" class="headerlink" title="后台路径特例"></a>后台路径特例</h5><p>对于后台路径的参照路径有一个特例：当代码中使用 response 的 sendRedirect()方法进行重定向时，其参照路径不是web应用的路径，而是web服务器的根路径。<br>例如，执行response.sendRedirect(“/show.jsp”)将会报404错误。因为其参照路径是 Tomcat的根，而非当前项目的根。所以若要使用重定向，要么写为无斜杠的相对路径，要么在路径上添加项目名称。</p>
+<h4 id="不以斜杠开头的相对路径"><a href="#不以斜杠开头的相对路径" class="headerlink" title="不以斜杠开头的相对路径"></a>不以斜杠开头的相对路径</h4><p>不以斜杠开头的相对路径，无论是前台路径，还是后台路径，其参照路径都是当前资源的访问路径，而不是当前资源的保存路径。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-23T15:18:12.847Z" itemprop="dateUpdated">2019-01-23 23:18:12</time>
+</span><br>
+
+
+        
+        感谢阅读，希望多提宝贵意见！Love&Peace
+        
+    </div>
+    
+    <footer>
+        <a href="http://jameszhan.cf">
+            <img src="/img/avatar.jpg" alt="詹姆斯·文">
+            詹姆斯·文
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSM/">SSM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringMVC/">SpringMVC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/&title=《SSM学习系列（二）：SpringMVC概述》 — James's Blog&pic=http://jameszhan.cf/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/&title=《SSM学习系列（二）：SpringMVC概述》 — James's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSM学习系列（二）：SpringMVC概述》 — James's Blog&url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/&via=http://jameszhan.cf" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/22/SSM学习系列（一）：前言/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SSM学习系列（一）：前言</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "YS8tET8uwwidufe4Re9lgF5G-gzGzoHsz",
+            appKey: "uo0SjlYSTmkMo9YDoqYoEgbn",
+            avatar: "mm",
+            placeholder: "湖人总冠军!嘻嘻···",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>詹姆斯·文 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/&title=《SSM学习系列（二）：SpringMVC概述》 — James's Blog&pic=http://jameszhan.cf/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/&title=《SSM学习系列（二）：SpringMVC概述》 — James's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSM学习系列（二）：SpringMVC概述》 — James's Blog&url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/&via=http://jameszhan.cf" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jameszhan.cf/2019/01/23/SSM学习系列（二）：SpringMVC概述/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3aQY7iQAwFUO5/6R6pVy3NJPm2yzQjvawQhMSvkArH9usVH1/fx8/XV+/8fP/q/Ptr3l//tXHg4eHhtULPb1AN4u9zJrHl8eDh4eFt85I/gx7jfltPPs2XCQ8PD+/TeHlqm2Put/77b+Hh4eH9L7z8ef/q+pMr4+Hh4X0OLw8xKgEEsOTMagx4eHh47+H1GmC/+3q9v4eHh4fX6qr3tt1Jkbfa6HqIEw8PD2+BVy3XThLcScMsH1Z4qLXg4eHhjXn3G/3kUb83yDW5TqELh4eHhzfm9Yqt8/Z/vjT5gMI//hjw8PDwjvKqiXX1xr1zkrS+vIh4eHh4b+Gdao9Vix3Vckb56QEPDw9vwJunzlVMHm6SLj8sHB4eHt7beXkhINmyE0Y1BX/4efDw8PAWeJPGfPNmxbGDfPzrIbHGw8PDW+PlranqIMJ84KDHxsPDw9vgJdv6qfZYb4gqPyeqNOPh4eENeL2EtTcslSffeSH44b54eHh4C7xeQba6rfcGDo6Vj/Hw8PCO8u7Lsr2CbHX4YJ5qX77Gw8PDW+DlfwDVjb6aLk+GrgplXDw8PLyjvPlRHUGoNtKqhQk8PDy8PV510Kq3TZ9tiRV+MTw8PLyjvHx7rQ4Q5AtXbWgVYsDDw8N7Cy+/Wb5ZJ0swKYJcpuN4eHh4C7xqQPN0uTeUkBQvClVqPDw8vAFvfvtqQaEXbq9cgoeHh7fBO9vuSsLNRwHycHvfwsPDw+vxvopHtRDQS8GPlUXw8PDwFniT8mi1OBsVW2Nw0hjDw8PD2+NNSgnJ9p2H0ivXNuvTeHh4eGNesikn6fX8nN7oAB4eHt4n83qf9pbgwNLg4eHh/SpvUoY41TArLwoeHh7eGm8yMpUHXR0pqJIu/xjw8PDwjvJGj/pBuaE38DpfGjw8PLwF3h9SbJKXkoWCpwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
