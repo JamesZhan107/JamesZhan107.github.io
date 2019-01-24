@@ -44,7 +44,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2018121811274758.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181218144447508.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181218144506578.png">
-<meta property="og:updated_time" content="2019-01-23T15:18:12.847Z">
+<meta property="og:updated_time" content="2019-01-24T03:11:33.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSM学习系列（二）：SpringMVC概述">
 <meta name="twitter:description" content="SpringMVC简介 SpringMVC属于表现层的框架，它是Spring框架的一部分。">
@@ -231,7 +231,7 @@
 <li>处理器适配器直接将结果返回给中央调度器。</li>
 <li>中央调度器调用视图解析器，将ModelAndView中的视图名称封装为视图对象。</li>
 </ol>
-<h1 id="SpringMVC开发流程"><a href="#SpringMVC开发流程" class="headerlink" title="SpringMVC开发流程"></a>SpringMVC开发流程</h1><h2 id="导入Jar包"><a href="#导入Jar包" class="headerlink" title="导入Jar包"></a>导入Jar包</h2><h2 id="注册中央调度器"><a href="#注册中央调度器" class="headerlink" title="注册中央调度器"></a>注册中央调度器</h2><p><img src="https://img-blog.csdnimg.cn/20181218111150322.png" alt=""></p>
+<h1 id="SpringMVC开发流程"><a href="#SpringMVC开发流程" class="headerlink" title="SpringMVC开发流程"></a>SpringMVC开发流程</h1><h2 id="导入Jar包"><a href="#导入Jar包" class="headerlink" title="导入Jar包"></a>导入Jar包</h2><h2 id="注册中央调度器"><a href="#注册中央调度器" class="headerlink" title="注册中央调度器"></a>注册中央调度器</h2><p>在web.xml配置文件中注册中央调度器<br><img src="https://img-blog.csdnimg.cn/20181218111150322.png" alt=""></p>
 <h2 id="创建SpringMVC配置文件"><a href="#创建SpringMVC配置文件" class="headerlink" title="创建SpringMVC配置文件"></a>创建SpringMVC配置文件</h2><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -239,31 +239,11 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h2 id="定义处理器"><a href="#定义处理器" class="headerlink" title="定义处理器"></a>定义处理器</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img-blog.csdnimg.cn/20181218112833217.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>ModelAndView类中的addObject()方法用于向其Model中添加数据，因为该函数的返回值为ModelAndView，所以可以向Model中连续添加多个数据。</p>
-<h2 id="注册处理器"><a href="#注册处理器" class="headerlink" title="注册处理器"></a>注册处理器</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img-blog.csdnimg.cn/20181218112307584.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>在springmvc.xml中注册处理器。需要注意的是处理器的id属性值为一个请求URI，表示当客户端提交该请求时，会访问class指定的这个处理器。</p>
-<h2 id="配置试图解析器"><a href="#配置试图解析器" class="headerlink" title="配置试图解析器"></a>配置试图解析器</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img-blog.csdnimg.cn/2018121811274758.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>SpringMVC框架为了避免对于请求资源路径与扩展名的冗余，在视图解析器InternalResouceViewResolver中引入了请求的前缀和后缀。</p>
+<h2 id="定义处理器"><a href="#定义处理器" class="headerlink" title="定义处理器"></a>定义处理器</h2><p>ModelAndView类中的addObject()方法用于向其Model中添加数据，因为该函数的返回值为ModelAndView，所以可以向Model中连续添加多个数据。<br><img src="https://img-blog.csdnimg.cn/20181218112833217.png" alt=""></p>
+<h2 id="注册处理器"><a href="#注册处理器" class="headerlink" title="注册处理器"></a>注册处理器</h2><p>在springmvc.xml中注册处理器。需要注意的是处理器的id属性值为一个请求URI，表示当客户端提交该请求时，会访问class指定的这个处理器。<br><img src="https://img-blog.csdnimg.cn/20181218112307584.png" alt=""></p>
+<h2 id="配置试图解析器"><a href="#配置试图解析器" class="headerlink" title="配置试图解析器"></a>配置试图解析器</h2><p>在springmvc.xml文件中配置视图解析器，是为了避免对于请求资源路径与扩展名的冗余，在视图解析器InternalResouceViewResolver中引入了请求的前缀和后缀。<br><img src="https://img-blog.csdnimg.cn/2018121811274758.png" alt=""></p>
 <h2 id="定义目标页面"><a href="#定义目标页面" class="headerlink" title="定义目标页面"></a>定义目标页面</h2><p>编写前端页面代码</p>
+<p><strong>由以上步骤可以发现，程序员只需要开发处理器和视图，其他部分不用开发采用默认的即可。</strong></p>
 <h1 id="URL路径问题"><a href="#URL路径问题" class="headerlink" title="URL路径问题"></a>URL路径问题</h1><h2 id="访问路径与资源路径"><a href="#访问路径与资源路径" class="headerlink" title="访问路径与资源路径"></a>访问路径与资源路径</h2><blockquote>
 <p>通常的URL资源访问路径由两部分构成：访问路径与资源名称。</p>
 </blockquote>
@@ -305,7 +285,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-01-23T15:18:12.847Z" itemprop="dateUpdated">2019-01-23 23:18:12</time>
+    最后更新时间：<time datetime="2019-01-24T03:11:33.249Z" itemprop="dateUpdated">2019-01-24 11:11:33</time>
 </span><br>
 
 
