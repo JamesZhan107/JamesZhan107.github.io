@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?58fa6a04ea6fa612757f458595a003f1"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>SSM学习系列（三）：SpringMVC注解式开发 | James&#39;s Blog | Winter is coming, Hope is everything!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java,SSM,SpringMVC">
+    <meta name="description" content="所谓注解式开发是指，处理器是基于注解的类的开发。对于每一个定义的处理器，无需在配置文件中逐个注册，只需在代码中通过对类与方法的注解，便可完成注册。  注解式开发的实现注册组件扫描器在springmvc.xml中注册。这里的组件指的就是处理器，需要指定处理器所在的基本包。">
+<meta name="keywords" content="Java,SSM,SpringMVC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSM学习系列（三）：SpringMVC注解式开发">
+<meta property="og:url" content="http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/index.html">
+<meta property="og:site_name" content="James&#39;s Blog">
+<meta property="og:description" content="所谓注解式开发是指，处理器是基于注解的类的开发。对于每一个定义的处理器，无需在配置文件中逐个注册，只需在代码中通过对类与方法的注解，便可完成注册。  注解式开发的实现注册组件扫描器在springmvc.xml中注册。这里的组件指的就是处理器，需要指定处理器所在的基本包。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218160331177.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218161103816.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218162955484.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218214853658.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181218215448176.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219192608529.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219192538921.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219192945232.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219193006927.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018121919304882.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219193112447.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219193225338.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219193428530.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219194704865.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219195834799.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2018121919590981.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219200014453.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219200359329.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219200421212.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219201159611.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219201519309.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219201450655.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203419739.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219202832182.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203026169.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203454680.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203516232.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203630154.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203645819.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203726861.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181219203803608.png">
+<meta property="og:updated_time" content="2019-01-25T01:39:24.783Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SSM学习系列（三）：SpringMVC注解式开发">
+<meta name="twitter:description" content="所谓注解式开发是指，处理器是基于注解的类的开发。对于每一个定义的处理器，无需在配置文件中逐个注册，只需在代码中通过对类与方法的注解，便可完成注册。  注解式开发的实现注册组件扫描器在springmvc.xml中注册。这里的组件指的就是处理器，需要指定处理器所在的基本包。">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181218160331177.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="James&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">詹姆斯·文</h5>
+          <a href="mailto:18846439093@163.com" title="18846439093@163.com" class="mail">18846439093@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/JamesZhan107" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">SSM学习系列（三）：SpringMVC注解式开发</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">SSM学习系列（三）：SpringMVC注解式开发</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-24T03:19:48.000Z" itemprop="datePublished" class="page-time">
+  2019-01-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端技术/">后端技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注解式开发的实现"><span class="post-toc-number">1.</span> <span class="post-toc-text">注解式开发的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册组件扫描器"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">注册组件扫描器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义处理器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">定义处理器</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#处理器请求映射规则的定义"><span class="post-toc-number">2.</span> <span class="post-toc-text">处理器请求映射规则的定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对请求URI的命名空间的定义"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">对请求URI的命名空间的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请求URI中通配符的应用"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">请求URI中通配符的应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#资源名称中使用通配符"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">资源名称中使用通配符</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#资源路径中使用通配符"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">资源路径中使用通配符</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对请求提交方式的定义"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">对请求提交方式的定义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对请求中携带参数的定义"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">对请求中携带参数的定义</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#处理器方法的参数"><span class="post-toc-number">3.</span> <span class="post-toc-text">处理器方法的参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逐个参数接收"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">逐个参数接收</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#校正请求参数名-RequestParam"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">校正请求参数名 --@RequestParam</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#整体参数接收"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">整体参数接收</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#域属性参数的接收"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">域属性参数的接收</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#请求URI中携带变量的接收"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">请求URI中携带变量的接收</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#处理器方法的返回值"><span class="post-toc-number">4.</span> <span class="post-toc-text">处理器方法的返回值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#返回ModelAndView"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">返回ModelAndView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#返回String"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">返回String</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回内部资源逻辑视图名"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">返回内部资源逻辑视图名</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回-View-对象名"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">返回 View 对象名</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#返回void"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">返回void</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过-ServletAPI-传递数据并完成跳转"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">通过 ServletAPI 传递数据并完成跳转</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AJAX响应"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">AJAX响应</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#返回Object"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">返回Object</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回数值型对象"><span class="post-toc-number">4.4.1.</span> <span class="post-toc-text">返回数值型对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回字符串对象"><span class="post-toc-number">4.4.2.</span> <span class="post-toc-text">返回字符串对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回自定义类型对象"><span class="post-toc-number">4.4.3.</span> <span class="post-toc-text">返回自定义类型对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回-Map-集合"><span class="post-toc-number">4.4.4.</span> <span class="post-toc-text">返回 Map 集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回-List-集合"><span class="post-toc-number">4.4.5.</span> <span class="post-toc-text">返回 List 集合</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-SSM学习系列（三）：SpringMVC注解式开发" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">SSM学习系列（三）：SpringMVC注解式开发</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-24 11:19:48" datetime="2019-01-24T03:19:48.000Z" itemprop="datePublished">2019-01-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端技术/">后端技术</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>所谓注解式开发是指，处理器是基于注解的类的开发。对于每一个定义的处理器，无需在配置文件中逐个注册，只需在代码中通过对类与方法的注解，便可完成注册。</p>
+</blockquote>
+<h1 id="注解式开发的实现"><a href="#注解式开发的实现" class="headerlink" title="注解式开发的实现"></a>注解式开发的实现</h1><h2 id="注册组件扫描器"><a href="#注册组件扫描器" class="headerlink" title="注册组件扫描器"></a>注册组件扫描器</h2><p>在springmvc.xml中注册。这里的组件指的就是处理器，需要指定处理器所在的基本包。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218160331177.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="定义处理器"><a href="#定义处理器" class="headerlink" title="定义处理器"></a>定义处理器</h2><p>此时的处理器类无需继承任何父类，实现任何接口。只需在类上与方法上添加相应注解即可。<br>@Controller：表示当前类处理器<br>@RequestMapping：表示当前方法为处理器方法，该方法要对value属性所指定的URL进行处理与响应。被注解方法的方法名可以随意。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218161103816.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="处理器请求映射规则的定义"><a href="#处理器请求映射规则的定义" class="headerlink" title="处理器请求映射规则的定义"></a>处理器请求映射规则的定义</h1><h2 id="对请求URI的命名空间的定义"><a href="#对请求URI的命名空间的定义" class="headerlink" title="对请求URI的命名空间的定义"></a>对请求URI的命名空间的定义</h2><p>一个@Controller所注解的类中，可以定义多个处理器方法。当然，不同的处理器方法所匹配的URI是不同的。这些不同的URI被指定在注解于方法之上的@RequestMapping的 value 属性中。</p>
+<p>若这些请求具有相同的URI部分，则这些相同的URI，可以被抽取到注解在类之上的@RequestMapping的value属性中。此时的这个URI称为命名空间。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181218162955484.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="请求URI中通配符的应用"><a href="#请求URI中通配符的应用" class="headerlink" title="请求URI中通配符的应用"></a>请求URI中通配符的应用</h2><h3 id="资源名称中使用通配符"><a href="#资源名称中使用通配符" class="headerlink" title="资源名称中使用通配符"></a>资源名称中使用通配符</h3><blockquote>
+<p>在请求的资源名称中使用名称通配符，表示请求的资源名称中只要包含指定的字符即可完成匹配。</p>
+</blockquote>
+<p>例如，/some*.do表示的意思是，只要请求的资源名称以some开头即可；/*other.do表示的意思是，只要请求的资源名称以other结尾即可。</p>
+<h3 id="资源路径中使用通配符"><a href="#资源路径中使用通配符" class="headerlink" title="资源路径中使用通配符"></a>资源路径中使用通配符</h3><blockquote>
+<p>在资源路径中使用通配符，有两种用法：路径级数的精确匹配，与路径级数的可变匹配。 </p>
+</blockquote>
+<p>/xxx/*/show.do：表示在 show.do 的资源名称前面，只能有两级路径，第一级必须是/xxx，而第二级随意。这种称为路径级数的精确匹配。 </p>
+<p>/xxx/**/show.do：表示在 show.do 的资源名称前面，必须以/xxx 路径开头，而其它级的路径是否包含，若包含又包含几级，各级又叫什么名称，均随意。这种称为路径级数的可变匹配。</p>
+<h2 id="对请求提交方式的定义"><a href="#对请求提交方式的定义" class="headerlink" title="对请求提交方式的定义"></a>对请求提交方式的定义</h2><p>对于@RequestMapping，其有一个属性 method，用于对被注解方法所处理请求的提交方式进行限制，即只有满足该 method 属性指定的提交方式的请求，才会执行该被注解方法。<br>Method 属性的取值为 RequestMethod 枚举常量。常用的为 RequestMethod.GET 与RequestMethod.POST，分别表示提交方式的匹配规则为 GET 与 POST 提交。<br><img src="https://img-blog.csdnimg.cn/20181218214853658.png" alt=""><br>只要指定了处理器方法匹配的请求提交方式为 POST，则相当于指定了请求发送的方式：要么使用表单请求，要么使用 AJAX 请求。其它请求方式被禁用。<br>当然，若不指定 method 属性，则无论是 GET 还是 POST 提交方式，均可匹配。即对于请求的提交方式无要求。</p>
+<h2 id="对请求中携带参数的定义"><a href="#对请求中携带参数的定义" class="headerlink" title="对请求中携带参数的定义"></a>对请求中携带参数的定义</h2><p>@RequestMapping中 params 属性中定义了请求中携带的参数要求。<br><img src="https://img-blog.csdnimg.cn/20181218215448176.png" alt=""></p>
+<h1 id="处理器方法的参数"><a href="#处理器方法的参数" class="headerlink" title="处理器方法的参数"></a>处理器方法的参数</h1><blockquote>
+<p>处理器方法可以包含以下五类参数：HttpServletRequest、HttpServletResponse、HttpSession、用于承载数据的 Model、请求中所携带的请求参数。这些参数会在系统调用时由系统自动赋值，即程序员可在方法内直接使用。</p>
+</blockquote>
+<p>这里只举例讲解一下第五类参数：请求中所携带的请求参数。即处理器方法是如何接收请求参数的。 </p>
+<h2 id="逐个参数接收"><a href="#逐个参数接收" class="headerlink" title="逐个参数接收"></a>逐个参数接收</h2><p>只要保证请求参数名与该请求处理方法的参数名相同即可。<br><img src="https://img-blog.csdnimg.cn/20181219192608529.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219192538921.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="校正请求参数名-RequestParam"><a href="#校正请求参数名-RequestParam" class="headerlink" title="校正请求参数名 --@RequestParam"></a>校正请求参数名 --@RequestParam</h2><p>所谓校正请求参数名，是指若请求 URL 所携带的参数名称与处理方法中指定的参数名不相同时，则需在处理方法参数前，添加一个注解@RequestParam(“请求参数名”)，指定请求 URL 所携带参数的名称。<br><img src="https://img-blog.csdnimg.cn/20181219192945232.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219193006927.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="整体参数接收"><a href="#整体参数接收" class="headerlink" title="整体参数接收"></a>整体参数接收</h2><p>将处理器方法的参数定义为一个对象，只要保证请求参数名与这个对象的属性同名即可。参数名称中不用写为“对象.属性”的形式。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/2018121919304882.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219193112447.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="域属性参数的接收"><a href="#域属性参数的接收" class="headerlink" title="域属性参数的接收"></a>域属性参数的接收</h2><p>所谓域属性，即对象属性。当请求参数中的数据为某类对象域属性的属性值时，要求请求参数名为“域属性名.属性”。<br><img src="https://img-blog.csdnimg.cn/20181219193225338.png" alt=""></p>
+<h2 id="请求URI中携带变量的接收"><a href="#请求URI中携带变量的接收" class="headerlink" title="请求URI中携带变量的接收"></a>请求URI中携带变量的接收</h2><blockquote>
+<p>对于处理器方法中所接收的请求参数，可以来自于请求中所携带的参数，也可以来自于<br>请求的 URI 中所携带的变量，即路径变量。此时，需要借助@PathVariable 注解。</p>
+</blockquote>
+<p>@PathVariable 在不指定参数的情况下，默认其参数名，即路径变量名与用于接收其值的属性名相同。若路径变量名与用于接收其值的属性名不同，则@PathVariable 可通过参数指出路径变量名称。<br><img src="https://img-blog.csdnimg.cn/20181219193428530.png" alt=""></p>
+<h1 id="处理器方法的返回值"><a href="#处理器方法的返回值" class="headerlink" title="处理器方法的返回值"></a>处理器方法的返回值</h1><h2 id="返回ModelAndView"><a href="#返回ModelAndView" class="headerlink" title="返回ModelAndView"></a>返回ModelAndView</h2><p>若处理器方法处理完后，需要跳转到其它资源，且又要在跳转的资源间传递数据，此时处理器方法返回 ModelAndView 比较好。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219194704865.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="返回String"><a href="#返回String" class="headerlink" title="返回String"></a>返回String</h2><h3 id="返回内部资源逻辑视图名"><a href="#返回内部资源逻辑视图名" class="headerlink" title="返回内部资源逻辑视图名"></a>返回内部资源逻辑视图名</h3><p>若要跳转的资源为内部资源，则视图解析器可以使用 InternalResourceViewResolver 内部资源视图解析器。此时处理器方法返回的字符串就是要跳转页面的文件名去掉文件扩展名后的部分。这个字符串与视图解析器中的 prefix、suffix 相结合，即可形成要访问的 URI。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219195834799.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/2018121919590981.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>当然，也可以直接返回资源的物理视图名。不过，此时就不需要再在视图解析器中再配置前辍与后辍了。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219200014453.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="返回-View-对象名"><a href="#返回-View-对象名" class="headerlink" title="返回 View 对象名"></a>返回 View 对象名</h3><p>若要跳转的资源为外部资源，则视图解析器可以使用 BeanNameViewResolver，然后在配置文件中再定义一些外部资源视图 View 对象，此时处理器方法返回的字符串就是要跳转资源视图 View 的名称。当然，这些视图 View 对象，可以是内部资源视图 View 对象。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219200359329.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219200421212.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="返回void"><a href="#返回void" class="headerlink" title="返回void"></a>返回void</h2><h3 id="通过-ServletAPI-传递数据并完成跳转"><a href="#通过-ServletAPI-传递数据并完成跳转" class="headerlink" title="通过 ServletAPI 传递数据并完成跳转"></a>通过 ServletAPI 传递数据并完成跳转</h3><p>通过在处理器方法的参数中放入 ServletAPI 参数，来完成资源跳转时所要传递的数据及跳转。<br>一方面，可在方法参数中放入 HttpServletRequest 或 HttpSession，使方法中可以直接将数据放入到 request、session 的域中，也可通过 request.getServletContext()获取到ServletContext，从而将数据放入到 application 的域中。<br>另一方面，可在方法参数中放入 HttpServletRequest 与 HttpServletResponse，使方法可以完成请求转发与重定向。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219201159611.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="AJAX响应"><a href="#AJAX响应" class="headerlink" title="AJAX响应"></a>AJAX响应</h3><p>若处理器对请求处理后，无需跳转到其它任何资源，此时可以让处理器方法返回 void。例如，对于 AJAX 的异步请求的响应。<br>处理器对于 AJAX 请求中所提交的参数，可以使用逐个接收的方式，也可以以对象的方式整体接收。只要保证 AJAX 请求参数与接收的对象类型属性同名。<br><img src="https://img-blog.csdnimg.cn/20181219201519309.png" alt=""><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219201450655.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="返回Object"><a href="#返回Object" class="headerlink" title="返回Object"></a>返回Object</h2><blockquote>
+<p>处理器方法也可以返回 Object 对象。但返回的这个 Object 对象不是作为逻辑视图出现的，而是作为直接在页面显示的数据出现的。 </p>
+</blockquote>
+<p>返回 Object 对象，需要使用@ResponseBody 注解，将转换后的 JSON 数据放入到响应体中。</p>
+<h3 id="返回数值型对象"><a href="#返回数值型对象" class="headerlink" title="返回数值型对象"></a>返回数值型对象</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219203419739.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219202832182.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="返回字符串对象"><a href="#返回字符串对象" class="headerlink" title="返回字符串对象"></a>返回字符串对象</h3><p>若要返回非中文字符串，将前面返回数值型数据的返回值直接修改为字符串即可。但若返 回的字符串中带有中文字符 ，需要使用@RequestMapping 的 produces 属性指定字符集。<br><img src="https://img-blog.csdnimg.cn/20181219203026169.png" alt=""></p>
+<h3 id="返回自定义类型对象"><a href="#返回自定义类型对象" class="headerlink" title="返回自定义类型对象"></a>返回自定义类型对象</h3><p>返回自定义类型对象时，不能以对象的形式直接返回给客户端浏览器，而是将对象转换为 JSON 格式的数据发送给浏览器的。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219203454680.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219203516232.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="返回-Map-集合"><a href="#返回-Map-集合" class="headerlink" title="返回 Map 集合"></a>返回 Map 集合</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219203630154.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219203645819.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="返回-List-集合"><a href="#返回-List-集合" class="headerlink" title="返回 List 集合"></a>返回 List 集合</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219203726861.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20181219203803608.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-01-25T01:39:24.783Z" itemprop="dateUpdated">2019-01-25 09:39:24</time>
+</span><br>
+
+
+        
+        感谢阅读，希望多提宝贵意见！Love&Peace
+        
+    </div>
+    
+    <footer>
+        <a href="http://jameszhan.cf">
+            <img src="/img/avatar.jpg" alt="詹姆斯·文">
+            詹姆斯·文
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSM/">SSM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringMVC/">SpringMVC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/&title=《SSM学习系列（三）：SpringMVC注解式开发》 — James's Blog&pic=http://jameszhan.cf/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/&title=《SSM学习系列（三）：SpringMVC注解式开发》 — James's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSM学习系列（三）：SpringMVC注解式开发》 — James's Blog&url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/&via=http://jameszhan.cf" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/23/SSM学习系列（二）：SpringMVC概述/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SSM学习系列（二）：SpringMVC概述</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "YS8tET8uwwidufe4Re9lgF5G-gzGzoHsz",
+            appKey: "uo0SjlYSTmkMo9YDoqYoEgbn",
+            avatar: "mm",
+            placeholder: "湖人总冠军!嘻嘻···",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>詹姆斯·文 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/&title=《SSM学习系列（三）：SpringMVC注解式开发》 — James's Blog&pic=http://jameszhan.cf/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/&title=《SSM学习系列（三）：SpringMVC注解式开发》 — James's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SSM学习系列（三）：SpringMVC注解式开发》 — James's Blog&url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/&via=http://jameszhan.cf" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jameszhan.cf/2019/01/24/SSM学习系列（三）：SpringMVC注解式开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpklEQVR42u3awW7CQAwEUP7/p9trJdp0xhtTVL2cEApkXw5ZZ+zHIz4+no7knJ/OfD7/6zfX5z82Djw8PLzjpf904ecLJEu8/m0CuF7PLzcUDw8Pb413/SCefc4f+rPbHW0eeHh4eG/Aa2HX5yRbDh4eHt7/4CVRxWx7SEh4eHh478DLH8R7y223opuzFjw8PLyYlwcE7/N5pb+Hh4eHdxyY5kFA2xib/X+9Wjw8PLwF3qwszkPeNpzNN6d8nXh4eHiv4SUNrbtaWe1V8lgZDw8Pb4PXtvPb4GAW4N7WWsPDw8Nb4M1e/tuRrJNhrLa8jiYj8PDw8A54bSP/rpL3vNSO1oaHh4f3Ql4b3ea343xIq3gNwMPDw1vj5bB80clv22GFNizGw8PD2+ZFA0xxMT37VV6gFyU1Hh4e3kt4SVTabiezltvsGzw8PLw93qzplbem8uGDWdldT0ng4eHhrfHaQau2gJ6Ftu1wGB4eHt4G7+QvkoDgLuQs1MDDw8Pb5uWXP8HM4to8gIgaYHh4eHjHvFkIO4uDZ0XzLBTGw8PD2+AVJ5WhbV4i51tIGw3j4eHhbfDyC7fFdxsltC0xPDw8vL/itfHorAiexRDt6EDekMPDw8O7i5cXxO1lZks/abzh4eHhbfPaQrm+cwd3vR01eMxOxcPDwxvx2kW0AcHJonN2lFLj4eHhLfPyeKK9NUmBftKEw8PDw9vgfZTHbPPIxwVOouRv1oOHh4e3wMuPPJBtwTljtoHh4eHhbfBm7fkEnzOSErkt3/Hw8PC2eflLflIot5tEvVPlxTQeHh7e2/Dy4YD20d8OIhSjA3h4eHh/yjtvZc1i2XZ8AQ8PD2+PdxK2nuTEJ/FEUVLj4eHh3cobvuSPzk9uWTKgcBsMDw8Pr+N9AjTCIhYNeyqIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
