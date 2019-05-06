@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jameszhan.cf/"/>
-  <updated>2019-01-25T01:39:24.783Z</updated>
+  <updated>2019-05-06T14:53:55.833Z</updated>
   <id>http://jameszhan.cf/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spark项目实战（一）：电商用户行为分析大数据平台</title>
+    <link href="http://jameszhan.cf/2019/05/06/Spark%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%94%B5%E5%95%86%E7%94%A8%E6%88%B7%E8%A1%8C%E4%B8%BA%E5%88%86%E6%9E%90%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0/"/>
+    <id>http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/</id>
+    <published>2019-05-06T14:40:00.000Z</published>
+    <updated>2019-05-06T14:53:55.833Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文主要记录在学习Spark实战项目中的学习进度及简要学习笔记。</p></blockquote><h1 id="Day1"><a href="#Day1" class="headerlink" title="Day1"></a>Day1</h1><h2 id="用户访问session分析-模块介绍"><a href="#用户访问session分析-模块介绍" class="headerlink" title="用户访问session分析-模块介绍"></a>用户访问session分析-模块介绍</h2><h2 id="用户访问session分析-基础数据结构以及大数据平台架构介绍"><a href="#用户访问session分析-基础数据结构以及大数据平台架构介绍" class="headerlink" title="用户访问session分析-基础数据结构以及大数据平台架构介绍"></a>用户访问session分析-基础数据结构以及大数据平台架构介绍</h2><h2 id="用户访问session分析-需求分析"><a href="#用户访问session分析-需求分析" class="headerlink" title="用户访问session分析-需求分析"></a>用户访问session分析-需求分析</h2><h2 id="用户访问session分析-技术方案设计"><a href="#用户访问session分析-技术方案设计" class="headerlink" title="用户访问session分析-技术方案设计"></a>用户访问session分析-技术方案设计</h2><h2 id="用户访问session分析-数据表设计"><a href="#用户访问session分析-数据表设计" class="headerlink" title="用户访问session分析-数据表设计"></a>用户访问session分析-数据表设计</h2><h1 id="Day2"><a href="#Day2" class="headerlink" title="Day2"></a>Day2</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;本文主要记录在学习Spark实战项目中的学习进度及简要学习笔记。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Day1&quot;&gt;&lt;a href=&quot;#Day1&quot; class=&quot;headerlink&quot; title=&quot;Day1&quot;&gt;&lt;/a&gt;Day1&lt;/h
+      
+    
+    </summary>
+    
+      <category term="大数据" scheme="http://jameszhan.cf/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="Spark" scheme="http://jameszhan.cf/tags/Spark/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://jameszhan.cf/2019/04/07/SparkStreaming%20+%20Kafka%20+Flume/"/>
+    <id>http://jameszhan.cf/2019/04/07/SparkStreaming + Kafka +Flume/</id>
+    <published>2019-04-07T14:38:31.303Z</published>
+    <updated>2019-04-07T14:38:31.303Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SSM学习系列（五）：SpringMVC核心技术（下）</title>
+    <link href="http://jameszhan.cf/2019/01/25/SSM%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%88%E4%BA%94%EF%BC%89%EF%BC%9ASpringMVC%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+    <id>http://jameszhan.cf/2019/01/25/SSM学习系列（五）：SpringMVC核心技术（下）/</id>
+    <published>2019-01-25T02:11:32.000Z</published>
+    <updated>2019-01-25T02:13:59.727Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数据验证"><a href="#数据验证" class="headerlink" title="数据验证"></a>数据验证</h1><h2 id="修改-springmvc-配置文件"><a href="#修改-springmvc-配置文件" class="headerlink" title="修改 springmvc 配置文件"></a>修改 springmvc 配置文件</h2><h2 id="在实体属性上添加验证注解"><a href="#在实体属性上添加验证注解" class="headerlink" title="在实体属性上添加验证注解"></a>在实体属性上添加验证注解</h2><h2 id="修改-Controller"><a href="#修改-Controller" class="headerlink" title="修改 Controller"></a>修改 Controller</h2><h2 id="页面显示验证异常信息"><a href="#页面显示验证异常信息" class="headerlink" title="页面显示验证异常信息"></a>页面显示验证异常信息</h2><h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="上传单个文件"><a href="#上传单个文件" class="headerlink" title="上传单个文件"></a>上传单个文件</h2><h2 id="上传多个文件"><a href="#上传多个文件" class="headerlink" title="上传多个文件"></a>上传多个文件</h2><h1 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h1><h2 id="一个拦截器的执行"><a href="#一个拦截器的执行" class="headerlink" title="一个拦截器的执行"></a>一个拦截器的执行</h2><h2 id="多个拦截器的执行"><a href="#多个拦截器的执行" class="headerlink" title="多个拦截器的执行"></a>多个拦截器的执行</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;数据验证&quot;&gt;&lt;a href=&quot;#数据验证&quot; class=&quot;headerlink&quot; title=&quot;数据验证&quot;&gt;&lt;/a&gt;数据验证&lt;/h1&gt;&lt;h2 id=&quot;修改-springmvc-配置文件&quot;&gt;&lt;a href=&quot;#修改-springmvc-配置文件&quot; class=&quot;he
+      
+    
+    </summary>
+    
+      <category term="后端技术" scheme="http://jameszhan.cf/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Java" scheme="http://jameszhan.cf/tags/Java/"/>
+    
+      <category term="SSM" scheme="http://jameszhan.cf/tags/SSM/"/>
+    
+      <category term="SpringMVC" scheme="http://jameszhan.cf/tags/SpringMVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSM学习系列（四）：SpringMVC核心技术（上）</title>
+    <link href="http://jameszhan.cf/2019/01/25/SSM%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%9ASpringMVC%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
+    <id>http://jameszhan.cf/2019/01/25/SSM学习系列（四）：SpringMVC核心技术（上）/</id>
+    <published>2019-01-25T01:53:02.000Z</published>
+    <updated>2019-01-25T02:14:15.063Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="请求转发与重定向"><a href="#请求转发与重定向" class="headerlink" title="请求转发与重定向"></a>请求转发与重定向</h1><h2 id="返回-ModelAndView-时的请求转发"><a href="#返回-ModelAndView-时的请求转发" class="headerlink" title="返回 ModelAndView 时的请求转发"></a>返回 ModelAndView 时的请求转发</h2><h3 id="请求转发到页面"><a href="#请求转发到页面" class="headerlink" title="请求转发到页面"></a>请求转发到页面</h3><h3 id="请求转发到其它-Controller"><a href="#请求转发到其它-Controller" class="headerlink" title="请求转发到其它 Controller"></a>请求转发到其它 Controller</h3><h2 id="返回-ModelAndView-时的重定向"><a href="#返回-ModelAndView-时的重定向" class="headerlink" title="返回 ModelAndView 时的重定向"></a>返回 ModelAndView 时的重定向</h2><h3 id="重定向到页面"><a href="#重定向到页面" class="headerlink" title="重定向到页面"></a>重定向到页面</h3><h4 id="通过-ModelAndView-的-Model-携带参数"><a href="#通过-ModelAndView-的-Model-携带参数" class="headerlink" title="通过 ModelAndView 的 Model 携带参数"></a>通过 ModelAndView 的 Model 携带参数</h4><h5 id="Step1：修改处理器类-MyController"><a href="#Step1：修改处理器类-MyController" class="headerlink" title="Step1：修改处理器类 MyController"></a>Step1：修改处理器类 MyController</h5><h5 id="Step2：修改-show-页面位置"><a href="#Step2：修改-show-页面位置" class="headerlink" title="Step2：修改 show 页面位置"></a>Step2：修改 show 页面位置</h5><h5 id="Step3：修改-show-页面内容"><a href="#Step3：修改-show-页面内容" class="headerlink" title="Step3：修改 show 页面内容"></a>Step3：修改 show 页面内容</h5><h4 id="使用-HttpSession-携带参数"><a href="#使用-HttpSession-携带参数" class="headerlink" title="使用 HttpSession 携带参数"></a>使用 HttpSession 携带参数</h4><h3 id="重定向到其它-Controller"><a href="#重定向到其它-Controller" class="headerlink" title="重定向到其它 Controller"></a>重定向到其它 Controller</h3><h2 id="返回-String-时的请求转发"><a href="#返回-String-时的请求转发" class="headerlink" title="返回 String 时的请求转发"></a>返回 String 时的请求转发</h2><h2 id="返回-String-时的重定向"><a href="#返回-String-时的重定向" class="headerlink" title="返回 String 时的重定向"></a>返回 String 时的重定向</h2><h3 id="重定向到页面-1"><a href="#重定向到页面-1" class="headerlink" title="重定向到页面"></a>重定向到页面</h3><h4 id="通过-Model-形参携带参数"><a href="#通过-Model-形参携带参数" class="headerlink" title="通过 Model 形参携带参数"></a>通过 Model 形参携带参数</h4><h4 id="通过形参-RedirectAttributes-的-addAttribute-携带参数"><a href="#通过形参-RedirectAttributes-的-addAttribute-携带参数" class="headerlink" title="通过形参 RedirectAttributes 的 addAttribute()携带参数"></a>通过形参 RedirectAttributes 的 addAttribute()携带参数</h4><h3 id="重定向到其它-Controller-1"><a href="#重定向到其它-Controller-1" class="headerlink" title="重定向到其它 Controller"></a>重定向到其它 Controller</h3><h4 id="通过-Model-形参携带参数-1"><a href="#通过-Model-形参携带参数-1" class="headerlink" title="通过 Model 形参携带参数"></a>通过 Model 形参携带参数</h4><h4 id="通过形参-RedirectAttributes-的-addFlushAttribute-携带参数"><a href="#通过形参-RedirectAttributes-的-addFlushAttribute-携带参数" class="headerlink" title="通过形参 RedirectAttributes 的 addFlushAttribute()携带参数"></a>通过形参 RedirectAttributes 的 addFlushAttribute()携带参数</h4><h2 id="返回-void-时的请求转发"><a href="#返回-void-时的请求转发" class="headerlink" title="返回 void 时的请求转发"></a>返回 void 时的请求转发</h2><h2 id="返回-void-时的重定向"><a href="#返回-void-时的重定向" class="headerlink" title="返回 void 时的重定向"></a>返回 void 时的重定向</h2><h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><h2 id="SimpleMappingExceptionResolver-异常处理器实现过程"><a href="#SimpleMappingExceptionResolver-异常处理器实现过程" class="headerlink" title="SimpleMappingExceptionResolver 异常处理器实现过程"></a>SimpleMappingExceptionResolver 异常处理器实现过程</h2><h3 id="自定义异常类"><a href="#自定义异常类" class="headerlink" title="自定义异常类"></a>自定义异常类</h3><h3 id="修改-Controller"><a href="#修改-Controller" class="headerlink" title="修改 Controller"></a>修改 Controller</h3><h3 id="注册异常处理器"><a href="#注册异常处理器" class="headerlink" title="注册异常处理器"></a>注册异常处理器</h3><h3 id="定义异常响应页面"><a href="#定义异常响应页面" class="headerlink" title="定义异常响应页面"></a>定义异常响应页面</h3><h2 id="自定义异常处理器实现过程"><a href="#自定义异常处理器实现过程" class="headerlink" title="自定义异常处理器实现过程"></a>自定义异常处理器实现过程</h2><h3 id="定义异常处理器"><a href="#定义异常处理器" class="headerlink" title="定义异常处理器"></a>定义异常处理器</h3><h3 id="注册异常处理器-1"><a href="#注册异常处理器-1" class="headerlink" title="注册异常处理器"></a>注册异常处理器</h3><h2 id="异常处理注解实现过程"><a href="#异常处理注解实现过程" class="headerlink" title="异常处理注解实现过程"></a>异常处理注解实现过程</h2><h3 id="定义异常处理的-Controller"><a href="#定义异常处理的-Controller" class="headerlink" title="定义异常处理的 Controller"></a>定义异常处理的 Controller</h3><h3 id="修改-Controller-1"><a href="#修改-Controller-1" class="headerlink" title="修改 Controller"></a>修改 Controller</h3><h1 id="类型转换器"><a href="#类型转换器" class="headerlink" title="类型转换器"></a>类型转换器</h1><h2 id="自定义类型转换器"><a href="#自定义类型转换器" class="headerlink" title="自定义类型转换器"></a>自定义类型转换器</h2><h2 id="对类型转换器的配置"><a href="#对类型转换器的配置" class="headerlink" title="对类型转换器的配置"></a>对类型转换器的配置</h2><h3 id="注册类型转换器"><a href="#注册类型转换器" class="headerlink" title="注册类型转换器"></a>注册类型转换器</h3><h3 id="创建转换服务-Bean"><a href="#创建转换服务-Bean" class="headerlink" title="创建转换服务 Bean"></a>创建转换服务 Bean</h3><h3 id="使用转换服务-Bean"><a href="#使用转换服务-Bean" class="headerlink" title="使用转换服务 Bean"></a>使用转换服务 Bean</h3><h3 id="SpringMVC-配置文件总的配置"><a href="#SpringMVC-配置文件总的配置" class="headerlink" title="SpringMVC 配置文件总的配置"></a>SpringMVC 配置文件总的配置</h3><h2 id="接收多种日期格式的类型转换器"><a href="#接收多种日期格式的类型转换器" class="headerlink" title="接收多种日期格式的类型转换器"></a>接收多种日期格式的类型转换器</h2><h2 id="数据回显（细节略）"><a href="#数据回显（细节略）" class="headerlink" title="数据回显（细节略）"></a>数据回显（细节略）</h2><h2 id="自定义类型转换失败后提示信息（细节略）"><a href="#自定义类型转换失败后提示信息（细节略）" class="headerlink" title="自定义类型转换失败后提示信息（细节略）"></a>自定义类型转换失败后提示信息（细节略）</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;请求转发与重定向&quot;&gt;&lt;a href=&quot;#请求转发与重定向&quot; class=&quot;headerlink&quot; title=&quot;请求转发与重定向&quot;&gt;&lt;/a&gt;请求转发与重定向&lt;/h1&gt;&lt;h2 id=&quot;返回-ModelAndView-时的请求转发&quot;&gt;&lt;a href=&quot;#返回-Mode
+      
+    
+    </summary>
+    
+      <category term="后端技术" scheme="http://jameszhan.cf/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Java" scheme="http://jameszhan.cf/tags/Java/"/>
+    
+      <category term="SSM" scheme="http://jameszhan.cf/tags/SSM/"/>
+    
+      <category term="SpringMVC" scheme="http://jameszhan.cf/tags/SpringMVC/"/>
+    
+  </entry>
   
   <entry>
     <title>SSM学习系列（三）：SpringMVC注解式开发</title>

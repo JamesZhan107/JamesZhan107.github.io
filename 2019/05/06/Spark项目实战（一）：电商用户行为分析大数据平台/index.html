@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?58fa6a04ea6fa612757f458595a003f1"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Spark项目实战（一）：电商用户行为分析大数据平台 | James&#39;s Blog | Winter is coming, Hope is everything!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Spark">
+    <meta name="description" content="本文主要记录在学习Spark实战项目中的学习进度及简要学习笔记。  Day1用户访问session分析-模块介绍用户访问session分析-基础数据结构以及大数据平台架构介绍用户访问session分析-需求分析用户访问session分析-技术方案设计用户访问session分析-数据表设计Day2">
+<meta name="keywords" content="Spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark项目实战（一）：电商用户行为分析大数据平台">
+<meta property="og:url" content="http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/index.html">
+<meta property="og:site_name" content="James&#39;s Blog">
+<meta property="og:description" content="本文主要记录在学习Spark实战项目中的学习进度及简要学习笔记。  Day1用户访问session分析-模块介绍用户访问session分析-基础数据结构以及大数据平台架构介绍用户访问session分析-需求分析用户访问session分析-技术方案设计用户访问session分析-数据表设计Day2">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-06T14:53:55.833Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spark项目实战（一）：电商用户行为分析大数据平台">
+<meta name="twitter:description" content="本文主要记录在学习Spark实战项目中的学习进度及简要学习笔记。  Day1用户访问session分析-模块介绍用户访问session分析-基础数据结构以及大数据平台架构介绍用户访问session分析-需求分析用户访问session分析-技术方案设计用户访问session分析-数据表设计Day2">
+    
+        <link rel="alternate" type="application/atom+xml" title="James&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">詹姆斯·文</h5>
+          <a href="mailto:18846439093@163.com" title="18846439093@163.com" class="mail">18846439093@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/JamesZhan107" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Spark项目实战（一）：电商用户行为分析大数据平台</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Spark项目实战（一）：电商用户行为分析大数据平台</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-06T14:40:00.000Z" itemprop="datePublished" class="page-time">
+  2019-05-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据/">大数据</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Day1"><span class="post-toc-number">1.</span> <span class="post-toc-text">Day1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户访问session分析-模块介绍"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">用户访问session分析-模块介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户访问session分析-基础数据结构以及大数据平台架构介绍"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">用户访问session分析-基础数据结构以及大数据平台架构介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户访问session分析-需求分析"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">用户访问session分析-需求分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户访问session分析-技术方案设计"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">用户访问session分析-技术方案设计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用户访问session分析-数据表设计"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">用户访问session分析-数据表设计</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Day2"><span class="post-toc-number">2.</span> <span class="post-toc-text">Day2</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Spark项目实战（一）：电商用户行为分析大数据平台" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Spark项目实战（一）：电商用户行为分析大数据平台</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-06 22:40:00" datetime="2019-05-06T14:40:00.000Z" itemprop="datePublished">2019-05-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/大数据/">大数据</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>本文主要记录在学习Spark实战项目中的学习进度及简要学习笔记。</p>
+</blockquote>
+<h1 id="Day1"><a href="#Day1" class="headerlink" title="Day1"></a>Day1</h1><h2 id="用户访问session分析-模块介绍"><a href="#用户访问session分析-模块介绍" class="headerlink" title="用户访问session分析-模块介绍"></a>用户访问session分析-模块介绍</h2><h2 id="用户访问session分析-基础数据结构以及大数据平台架构介绍"><a href="#用户访问session分析-基础数据结构以及大数据平台架构介绍" class="headerlink" title="用户访问session分析-基础数据结构以及大数据平台架构介绍"></a>用户访问session分析-基础数据结构以及大数据平台架构介绍</h2><h2 id="用户访问session分析-需求分析"><a href="#用户访问session分析-需求分析" class="headerlink" title="用户访问session分析-需求分析"></a>用户访问session分析-需求分析</h2><h2 id="用户访问session分析-技术方案设计"><a href="#用户访问session分析-技术方案设计" class="headerlink" title="用户访问session分析-技术方案设计"></a>用户访问session分析-技术方案设计</h2><h2 id="用户访问session分析-数据表设计"><a href="#用户访问session分析-数据表设计" class="headerlink" title="用户访问session分析-数据表设计"></a>用户访问session分析-数据表设计</h2><h1 id="Day2"><a href="#Day2" class="headerlink" title="Day2"></a>Day2</h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-05-06T14:53:55.833Z" itemprop="dateUpdated">2019-05-06 22:53:55</time>
+</span><br>
+
+
+        
+        感谢阅读，希望多提宝贵意见！Love&Peace
+        
+    </div>
+    
+    <footer>
+        <a href="http://jameszhan.cf">
+            <img src="/img/avatar.jpg" alt="詹姆斯·文">
+            詹姆斯·文
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/">Spark</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/&title=《Spark项目实战（一）：电商用户行为分析大数据平台》 — James's Blog&pic=http://jameszhan.cf/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/&title=《Spark项目实战（一）：电商用户行为分析大数据平台》 — James's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark项目实战（一）：电商用户行为分析大数据平台》 — James's Blog&url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/&via=http://jameszhan.cf" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/04/07/SparkStreaming + Kafka +Flume/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">No title</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "YS8tET8uwwidufe4Re9lgF5G-gzGzoHsz",
+            appKey: "uo0SjlYSTmkMo9YDoqYoEgbn",
+            avatar: "mm",
+            placeholder: "湖人总冠军!嘻嘻···",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>詹姆斯·文 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/&title=《Spark项目实战（一）：电商用户行为分析大数据平台》 — James's Blog&pic=http://jameszhan.cf/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/&title=《Spark项目实战（一）：电商用户行为分析大数据平台》 — James's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark项目实战（一）：电商用户行为分析大数据平台》 — James's Blog&url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/&via=http://jameszhan.cf" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://jameszhan.cf/2019/05/06/Spark项目实战（一）：电商用户行为分析大数据平台/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADOUlEQVR42u3aQW7jQAwEQP//095rgI3tbo52ETGlk+Eo8tQEcIfkPB7x9fxy/f1+8s7X99+/fv+E5P7LLmxsbOybsJ9vr/f3vAK/et2yk58m6/xma7CxsbHXsV99w+eMZLl5mJ3H4QcjNjY2NnawiGTpeZGTFyfY2NjY2CfRklPb+GlLIGxsbOzfxm4LhqQ1n7T7Z+HUNr+wsbGxd7PzqejPf/1P5tvY2NjYP5j9LK+TYW3+nPyAznN0YWNjY29i5wGQN/HzOMmLhPbwUPRZ2NjY2IvYdWM9CK2rCpvzTSmWgo2NjX1Ddj4SaJvy58h2JUXIYWNjYy9izw7K5AVJu9ykhMjHvR9KI2xsbOxF7JPiIW8nteGXb/q1DSxsbGzsO7LP/63PNyJpG7WHL4/CCRsbG3sR+2R8mxyvydtM7SGemQgbGxt7B3s2Rj3ZoFnDqH3+h23CxsbGXsd+f81iJg+VWes/Hyd/cw82Njb2anYSYG2BkQfM/4k3bGxs7E3s2SNmd7bbd36458PKsbGxsRexZ/PQWYy1x31O2l5Hg2FsbGzsFey2OGnbQ+2iZ8NgbGxs7N/Azv99b3ltsdE2p5KYfPkEbGxs7KXsNjZmQ9wkIPNx8rAUwcbGxl7BTr768yuPqNnsNYm9aKOxsbGxF7GvGtzmB3HOR7Nt8+jl/djY2Ngr2HkM5O3+tqGf/1a+fR9eY2NjYy9ity2htuSYlRCzozn1TBsbGxt7BbttIRXxEBcS7UGf2VDhZS8NGxsb++bsWTOojZD2nfxQUZ3VJz0wbGxs7JuwZ0HSPuE86mZ/jJcBho2Njb2CncfGyWGa2SGh2VCh7qVhY2Nj35zdfvysoZOT2vKjrTWwsbGx97Ef8fX+/vYgTnL0J9+Ux1UMbGxs7Juwn+WVs5NioA2zWakTjXixsbGxb8uefee3UTQbx86Gx7PyBhsbG/vu7Da0ktcnQXVeWUTtJ2xsbOx17OT4Sz64LT6+HCqfhy42NjY2dtv0n7V7ZsPmYoOwsbGxfzE7L0WSkJttbht43/wWNjY29jr2yTB1dgTn5NMvKIGwsbGxF7HzBk0SKrMtyJd41XACGxsbewX7D7hvXckhvEZlAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
